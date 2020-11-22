@@ -28,7 +28,7 @@ _OaksLabText39::
 _OaksLabCharmanderText::
 	text "So! You want the"
 	line "ground #MON,"
-	cont "RYDON?"
+	cont "RHYDON?"
 	done
 
 _OaksLabSquirtleText::
