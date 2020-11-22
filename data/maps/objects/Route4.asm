@@ -3,7 +3,7 @@ Route4_Object:
 
 	def_warps
 	warp 11,  5, 0, MT_MOON_POKECENTER
-	warp 18,  5, 0, MT_MOON_1F
+	warp 18,  5, 2, MT_MOON_B2F
 	warp 24,  5, 7, MT_MOON_B1F
 
 	def_signs

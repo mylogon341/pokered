@@ -24,8 +24,8 @@ _Route4AfterBattleText1::
 	done
 
 _Route4Text5::
-	text "MT.MOON"
-	line "Tunnel Entrance"
+	text "A little bit"
+	line "of Mt. Moon :)"
 	done
 
 _Route4Text6::
