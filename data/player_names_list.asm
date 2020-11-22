@@ -14,14 +14,14 @@ ENDC
 
 IF DEF(_BLUE)
 DefaultNamesPlayerList:
-	db "NEW NAME@"
-	db "BLUE@"
-	db "GARY@"
-	db "JOHN@"
+    db "SMELLY@"
+	db "SMELLY@"
+	db "SMELLY@"
+	db "SMELLY@"
 
 DefaultNamesRivalList:
 	db "NEW NAME@"
-	db "RED@"
+	db "SNARE@"
 	db "ASH@"
 	db "JACK@"
 ENDC

@@ -1700,7 +1700,7 @@ _OakSpeechText1::
 	line "Welcome to the"
 	cont "world of #MON!"
 
-	para "My name is OAK!"
+	para "My name is DADLER!"
 	line "People call me"
 	cont "the #MON PROF!"
 	prompt
@@ -1727,8 +1727,13 @@ _OakSpeechText2B::
 	prompt
 
 _IntroducePlayerText::
-	text "First, what is"
-	line "your name?"
+	text "First, tell me"
+	line "your name..."
+
+	para "OR ELSE!!!"
+
+	para "What is your"
+	line "name?!"
 	prompt
 
 _IntroduceRivalText::
@@ -1737,8 +1742,14 @@ _IntroduceRivalText::
 	cont "your rival since"
 	cont "you were a baby."
 
-	para "...Erm, what is"
-	line "his name again?"
+	para "...Erm, I can't"
+	line "seem to remember"
+	cont "his name. Maybe"
+	cont "you could pick a"
+	cont "new one for him?"
+
+	para "I'm sure he won't"
+	line "mind.. :)"
 	prompt
 
 _OakSpeechText3::
@@ -1762,9 +1773,23 @@ _DoYouWantToNicknameText::
 	text "?"
 	done
 
+_NoCustomText::
+	text "Yeah. No."
+	line "If you don't"
+	cont "like my suggested"
+	cont "names, then I'll"
+	cont "pick one for you."
+	cont "You shall be"
+	cont "know as...."
+	para "<PLAYER>!"
+	prompt
+
 _YourNameIsText::
-	text "Right! So your"
-	line "name is <PLAYER>!"
+	text "Sorry. What was"
+	line "that? <PLAYER>?"
+
+	para "Nice to meet you"
+	line "<PLAYER>! :D"
 	prompt
 
 _HisNameIsText::

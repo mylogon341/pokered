@@ -2,30 +2,24 @@ ChoosePlayerName:
 	call OakSpeechSlidePicRight
 	ld de, DefaultNamesPlayer
 	call DisplayIntroNameTextBox
-	ld a, [wCurrentMenuItem]
-	and a
-	jr z, .customName
 	ld hl, DefaultNamesPlayerList
 	call GetDefaultName
 	ld de, wPlayerName
 	call OakSpeechSlidePicLeft
+	ld a, [wCurrentMenuItem]
+	and a
+	jr z, .customName
 	jr .done
 .customName
-	ld hl, wPlayerName
-	xor a ; NAME_PLAYER_SCREEN
-	ld [wNamingScreenType], a
-	call DisplayNamingScreen
-	ld a, [wcf4b]
-	cp "@"
-	jr z, .customName
-	call ClearScreen
-	call Delay3
-	ld de, RedPicFront
-	ld b, BANK(RedPicFront)
-	call IntroDisplayPicCenteredOrUpperRight
+	ld hl, NoCustomName
+	jp PrintText
 .done
 	ld hl, YourNameIsText
 	jp PrintText
+
+NoCustomName:
+	text_far _NoCustomText
+	text_end
 
 YourNameIsText:
 	text_far _YourNameIsText
