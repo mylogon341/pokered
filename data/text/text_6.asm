@@ -12,22 +12,26 @@ _ItemUseBallText01::
 	prompt
 
 _ItemUseBallText02::
-	text "Darn! The #MON"
+	text "Dang! The #MON"
 	line "broke free!"
+	cont "Maybe try to"
+	cont "to beat it up"
+	cont "a bit more!?"
 	prompt
 
 _ItemUseBallText03::
 	text "Aww! It appeared"
-	line "to be caught! "
+	line "to be caught,"
+	cont "the little rascal!"
 	prompt
 
 _ItemUseBallText04::
-	text "Shoot! It was so"
+	text "ARRGH! It was so"
 	line "close too!"
 	prompt
 
 _ItemUseBallText05::
-	text "All right!"
+	text "NICE! ;)"
 	line "@"
 	text_ram wEnemyMonNick
 	text " was"
@@ -84,11 +88,14 @@ _VitaminNoEffectText::
 _ThrewBaitText::
 	text "<PLAYER> threw"
 	line "some BAIT."
+	cont "It stinks!"
 	done
 
 _ThrewRockText::
 	text "<PLAYER> threw a"
-	line "ROCK."
+	line "little pebble."
+	cont "It was quite"
+	cont "pathetic really.."
 	done
 
 _PlayedFluteNoEffectText::
@@ -210,6 +217,8 @@ _ThrowBallAtTrainerMonText1::
 
 _ThrowBallAtTrainerMonText2::
 	text "Don't be a thief!"
+	line "No one likes a"
+	cont "little #thief!"
 	prompt
 
 _NoCyclingAllowedHereText::

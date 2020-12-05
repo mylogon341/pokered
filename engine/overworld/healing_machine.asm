@@ -30,7 +30,7 @@ AnimateHealingMachine:
 	call CopyHealingMachineOAM
 	ld a, SFX_HEALING_MACHINE
 	call PlaySound
-	ld c, 30
+	ld c, 15
 	call DelayFrames
 	dec b
 	jr nz, .partyLoop

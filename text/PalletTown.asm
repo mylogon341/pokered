@@ -5,16 +5,15 @@ _OakAppearsText::
 
 _OakWalksUpText::
 	text "OAK: It's unsafe!"
-	line "Wild #MON live"
+	line "Strangers are out"
 	cont "in tall grass!"
 
 	para "You need your own"
 	line "#MON for your"
 	cont "protection."
-	cont "I know!"
 
-	para "Here, come with"
-	line "me!"
+	para "Stick with me if"
+	line "you want to live!"
 	done
 
 _PalletTownText2::
@@ -37,14 +36,14 @@ _PalletTownText3::
 	done
 
 _PalletTownText4::
-	text "OAK #MON"
-	line "RESEARCH LAB"
+	text "OAK's lab"
+	line "Girls keep out!"
 	done
 
 _PalletTownText5::
 	text "PALLET TOWN"
-	line "Shades of your"
-	cont "journey await!"
+	line "Home to the"
+	cont "famous Ash Ketchup"
 	done
 
 _PalletTownText6::

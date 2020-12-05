@@ -1561,6 +1561,9 @@ wTrainerName::
 ; unused trailing letters
 	ds 13
 
+wIsAThiefBattle::
+	ds 1
+
 wIsInBattle::
 ; lost battle, this is -1
 ; no battle, this is 0

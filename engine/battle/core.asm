@@ -161,6 +161,12 @@ StartBattle:
 	and a
 	jp z, HandlePlayerBlackOut ; jump if no mon is alive
 	call LoadScreenTilesFromBuffer1
+
+	ld a, [wIsAThiefBattle]
+    dec a
+	ld a, $2
+	ld [wIsInBattle], a
+
 	ld a, [wBattleType]
 	and a ; is it a normal battle?
 	jp z, .playerSendOutFirstMon ; if so, send out player mon
@@ -701,6 +707,12 @@ HandleEnemyMonFainted:
 	ld [wInHandlePlayerMonFainted], a
 	call FaintEnemyPokemon
 	call AnyPartyAlive
+
+	ld a, [wIsAThiefBattle]
+	dec a
+	call FaintEnemyPokemon
+	call AnyPartyAlive
+
 	ld a, d
 	and a
 	jp z, HandlePlayerBlackOut ; if no party mons are alive, the player blacks out
@@ -2207,7 +2219,7 @@ BagWasSelected:
 
 OldManItemList:
 	db 1 ; # items
-	db POKE_BALL, 50
+	db MASTER_BALL, 50
 	db -1 ; end
 
 DisplayPlayerBag:
@@ -2264,6 +2276,12 @@ UseBagItem:
 	res USING_TRAPPING_MOVE, [hl] ; not using multi-turn move any more
 
 .checkIfMonCaptured
+
+    ld a, [wIsAThiefBattle]
+    dec a
+    ld a, $0
+    ld [wCapturedMonSpecies], a
+
 	ld a, [wCapturedMonSpecies]
 	and a ; was the enemy mon captured with a ball?
 	jr nz, .returnAfterCapturingMon
@@ -2282,6 +2300,7 @@ UseBagItem:
 	ret
 
 .returnAfterCapturingMon
+
 	call GBPalNormal
 	xor a
 	ld [wCapturedMonSpecies], a

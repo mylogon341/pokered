@@ -110,7 +110,7 @@ ItemUseBall:
 
 ; Balls can't catch trainers' Pokémon.
 	dec a
-	jp nz, ThrowBallAtTrainerMon
+	jr nz, .isTheif
 
 ; If this is for the old man battle, skip checking if the party & box are full.
 	ld a, [wBattleType]
@@ -123,7 +123,11 @@ ItemUseBall:
 	ld a, [wNumInBox] ; is box full?
 	cp MONS_PER_BOX
 	jp z, BoxFullCannotThrowBall
-
+.isTheif
+	ld a, $1
+	ld [wIsAThiefBattle], a
+	ld [wIsInBattle], a
+	
 .canUseBall
 	xor a
 	ld [wCapturedMonSpecies], a
@@ -316,9 +320,23 @@ ItemUseBall:
 	jr c, .failedToCapture
 
 .captured
-	jr .skipShakeCalculations
+	call .skipShakeCalculations
+    
+	ld a, [wIsAThiefBattle]
+    dec a
+	call .notTheifAnymore
 
+.notTheifAnymore
+	ld a, $2
+	ld [wIsInBattle], a
+	ld a, $0
+	ld [wIsAThiefBattle], a
 .failedToCapture
+	
+	ld a, [wIsAThiefBattle]
+	dec a
+	ld a, $2 ; set back to battle
+	ld [wIsInBattle], a
 	ldh a, [hQuotient + 3]
 	ld [wPokeBallCaptureCalcTemp], a ; Save X.
 
@@ -534,10 +552,8 @@ ItemUseBall:
 	ld b, FLAG_SET
 	predef FlagActionPredef
 	pop af
-
 	and a ; was the Pokémon already in the Pokédex?
 	jr nz, .skipShowingPokedexData ; if so, don't show the Pokédex data
-
 	ld hl, ItemUseBallText06
 	call PrintText
 	call ClearSprites

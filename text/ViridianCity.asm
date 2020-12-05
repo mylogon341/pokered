@@ -100,8 +100,8 @@ _TM42NoRoomText::
 
 _ViridianCityText_1920a::
 	text "Ahh, I've had my"
-	line "coffee now and I"
-	cont "feel great!"
+	line "coffee now. Sorry"
+	cont "if I was too rude!"
 
 	para "Sure you can go"
 	line "through!"
