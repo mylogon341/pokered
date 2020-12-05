@@ -14,6 +14,11 @@ BIT_TEST_BATTLE EQU 0
 	const BATTLE_TYPE_OLD_MAN ; 1
 	const BATTLE_TYPE_SAFARI  ; 2
 
+	const BATTLE_STATE_LOST    ; -1
+	const BATTLE_STATE_NONE    ; 0
+	const BATTLE_STATE_WILD    ; 1
+	const BATTLE_STATE_TRAINER ; 2
+
 ; damage limits before type effectiveness
 MIN_NEUTRAL_DAMAGE EQU 2
 MAX_NEUTRAL_DAMAGE EQU 999

@@ -101,6 +101,17 @@ ItemUsePtrTable:
 	dw ItemUsePPRestore  ; ELIXER
 	dw ItemUsePPRestore  ; MAX_ELIXER
 
+SetThiefBattle:
+	ld a, $1
+	ld [wIsAThiefBattle], a
+	ld [wIsInBattle], a
+
+UnsetThiefBattle:
+	ld a, $0
+	ld [wIsAThiefBattle], a
+	ld a, $2
+	ld [wIsInBattle], a
+
 ItemUseBall:
 
 ; Balls can't be used out of battle.
@@ -109,8 +120,9 @@ ItemUseBall:
 	jp z, ItemUseNotTime
 
 ; Balls can't catch trainers' Pokémon.
-	dec a
-	jr nz, .isTheif
+	ld a, [wIsInBattle]
+	cp BATTLE_STATE_TRAINER
+	jr z, SetThiefBattle
 
 ; If this is for the old man battle, skip checking if the party & box are full.
 	ld a, [wBattleType]
@@ -123,11 +135,6 @@ ItemUseBall:
 	ld a, [wNumInBox] ; is box full?
 	cp MONS_PER_BOX
 	jp z, BoxFullCannotThrowBall
-.isTheif
-	ld a, $1
-	ld [wIsAThiefBattle], a
-	ld [wIsInBattle], a
-	
 .canUseBall
 	xor a
 	ld [wCapturedMonSpecies], a
@@ -323,20 +330,15 @@ ItemUseBall:
 	call .skipShakeCalculations
     
 	ld a, [wIsAThiefBattle]
-    dec a
-	call .notTheifAnymore
+    cp $1
+	jp z, UnsetThiefBattle
 
-.notTheifAnymore
-	ld a, $2
-	ld [wIsInBattle], a
-	ld a, $0
-	ld [wIsAThiefBattle], a
 .failedToCapture
-	
+
 	ld a, [wIsAThiefBattle]
-	dec a
-	ld a, $2 ; set back to battle
-	ld [wIsInBattle], a
+    cp $1
+	jp z, UnsetThiefBattle
+
 	ldh a, [hQuotient + 3]
 	ld [wPokeBallCaptureCalcTemp], a ; Save X.
 

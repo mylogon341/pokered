@@ -162,11 +162,6 @@ StartBattle:
 	jp z, HandlePlayerBlackOut ; jump if no mon is alive
 	call LoadScreenTilesFromBuffer1
 
-	ld a, [wIsAThiefBattle]
-    dec a
-	ld a, $2
-	ld [wIsInBattle], a
-
 	ld a, [wBattleType]
 	and a ; is it a normal battle?
 	jp z, .playerSendOutFirstMon ; if so, send out player mon
@@ -705,11 +700,6 @@ CheckNumAttacksLeft:
 HandleEnemyMonFainted:
 	xor a
 	ld [wInHandlePlayerMonFainted], a
-	call FaintEnemyPokemon
-	call AnyPartyAlive
-
-	ld a, [wIsAThiefBattle]
-	dec a
 	call FaintEnemyPokemon
 	call AnyPartyAlive
 
@@ -2277,10 +2267,9 @@ UseBagItem:
 
 .checkIfMonCaptured
 
-    ld a, [wIsAThiefBattle]
-    dec a
-    ld a, $0
-    ld [wCapturedMonSpecies], a
+	ld a, [wIsAThiefBattle]
+    cp $1
+	jp z, .resetThiefBattle
 
 	ld a, [wCapturedMonSpecies]
 	and a ; was the enemy mon captured with a ball?
@@ -2293,6 +2282,14 @@ UseBagItem:
 	call LoadScreenTilesFromBuffer1
 	call DrawHUDsAndHPBars
 	call Delay3
+
+.resetThiefBattle
+    ld a, $0
+    ld [wCapturedMonSpecies], a
+	ld a, BATTLE_STATE_TRAINER
+	ld [wIsInBattle], a
+	jp .returnAfterUsingItem_NoCapture
+
 .returnAfterUsingItem_NoCapture
 
 	call GBPalNormal

@@ -192,13 +192,14 @@ _OaksLabRivalWaitingText::
 
 _OaksLabChooseMonText::
 	text "OAK: Oh shut up,"
-	line "<RIVAL>! Quit your"
-	cont "complaining or you"
-	cont "get nothing!"
+	line "<RIVAL>! Quit"
+	cont "your complaining"
+	cont "or you get!"
+	cont "nothing!"
 
 	para "Where was I..?"
 	cont "Oh, that's right,"
-	line "I told you to"
+	cont "I told you to"
 	cont "come! Just wait!"
 
 	para "Here, <PLAYER>!"
@@ -210,33 +211,38 @@ _OaksLabChooseMonText::
 	line "the # BALLs."
 
 	para "I only have 3"
-	line "#MON left. Please"
-	cont "don't take any of"
+	line "#MON left."
+	cont "Please don't"
+	cont "take any of"
 	cont "these.."
 	done
 
 _OaksLabRivalInterjectionText::
 	text "<RIVAL>: Hey!"
 	line "Gramps! Listen to"
-	cont "me! These are ours"
-	cont "now. <PLAYER> and I"
-	cont "are going to help"
-	cont "ourselves. Isn't that"
-	cont "right, <PLAYER>?"
-	cont "After you, <PLAYER>"
+	cont "me! These belong"
+	cont "to us now!"
+
+	para "<PLAYER> and"
+	cont "I are going to"
+	cont "help ourself."
+	cont "Isn't that right,"
+	cont "<PLAYER>?"
+	para "After you, <PLAYER>"
 
 	para "OAK: Please no. It"
 	line "took me like 50"
-	cont "years to find these"
-	cont "3 #MON! Without"
-	cont "them, I'm nothing!"
+	cont "years to find"
+	cont "those 3 #MON!"
+	cont "Without them,"
+	cont "I'm nothing!"
 
 	done
 
 _OaksLabBePatientText::
 	text "OAK: ...."
-	cont "Ok... take them."
-	cont "D':"
+	line "Ok... take them."
+	cont "- SOB :( - "
 	done
 
 _OaksLabLeavingText::

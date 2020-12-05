@@ -61,10 +61,10 @@ _StoppedEvolvingText::
 _IsEvolvingText::
 	text "- Barbie style -" 
 	line "What in the world?!"
-	cont "@"
+	para "Is @"
 	text_ram wcf4b
 	text_start
-	line "is evolving!"
+	line "evolving?!"
 	done
 
 _FellAsleepText::
