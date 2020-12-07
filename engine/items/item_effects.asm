@@ -104,6 +104,7 @@ ItemUsePtrTable:
 SetThiefBattle:
 	ld a, $1
 	ld [wIsAThiefBattle], a
+	ld a, BATTLE_STATE_WILD
 	ld [wIsInBattle], a
 
 UnsetThiefBattle:
@@ -122,7 +123,7 @@ ItemUseBall:
 ; Balls can't catch trainers' Pokémon.
 	ld a, [wIsInBattle]
 	cp BATTLE_STATE_TRAINER
-	jr z, SetThiefBattle
+	call z, SetThiefBattle
 
 ; If this is for the old man battle, skip checking if the party & box are full.
 	ld a, [wBattleType]
@@ -331,13 +332,13 @@ ItemUseBall:
     
 	ld a, [wIsAThiefBattle]
     cp $1
-	jp z, UnsetThiefBattle
+	call z, UnsetThiefBattle
 
 .failedToCapture
 
 	ld a, [wIsAThiefBattle]
     cp $1
-	jp z, UnsetThiefBattle
+	call z, UnsetThiefBattle
 
 	ldh a, [hQuotient + 3]
 	ld [wPokeBallCaptureCalcTemp], a ; Save X.

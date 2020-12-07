@@ -2269,7 +2269,7 @@ UseBagItem:
 
 	ld a, [wIsAThiefBattle]
     cp $1
-	jp z, .resetThiefBattle
+	jr z, .resetThiefBattle
 
 	ld a, [wCapturedMonSpecies]
 	and a ; was the enemy mon captured with a ball?
@@ -2288,7 +2288,7 @@ UseBagItem:
     ld [wCapturedMonSpecies], a
 	ld a, BATTLE_STATE_TRAINER
 	ld [wIsInBattle], a
-	jp .returnAfterUsingItem_NoCapture
+	; jp .returnAfterUsingItem_NoCapture
 
 .returnAfterUsingItem_NoCapture
 
