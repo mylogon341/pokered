@@ -1,6 +1,17 @@
 _PokemartGreetingText::
 	text "Hi there!"
-	next "May I help you?"
+	next "What can I get"
+	cont "for you?"
+	
+	para "Our prices are"
+	line "pretty high, but"
+	cont "you're going to"
+	cont "pay because what"
+	cont "are you going to"
+	cont "do? This is a"
+	cont "chain store. It's"
+	cont "not like I set"
+	cont "the prices."
 	done
 
 _PokemonFaintedText::
@@ -13,8 +24,10 @@ _PlayerBlackedOutText::
 	text "<PLAYER> is out of"
 	line "useable #MON!"
 
-	para "<PLAYER> blacked"
-	line "out!"
+	para "<PLAYER> ran"
+	line "back to the"
+	cont "#MON centre like"
+	cont "a big cry baby!"
 	prompt
 
 _RepelWoreOffText::
@@ -38,6 +51,10 @@ _PokemartTellBuyPriceText::
 _PokemartBoughtItemText::
 	text "Here you are!"
 	line "Thank you!"
+	cont "Make sure to come"
+	cont "back and give me"
+	cont "more of your"
+	cont "money, kid! HA!"
 	prompt
 
 _PokemartNotEnoughMoneyText::
@@ -92,6 +109,8 @@ _LearnedMove1Text::
 _WhichMoveToForgetText::
 	text "Which move should"
 	next "be forgotten?"
+	cont "Be careful what"
+	cont "click on, <PLAYER>!"
 	done
 
 _AbandonLearningText::
@@ -157,12 +176,8 @@ _HMCantDeleteText::
 	prompt
 
 _PokemonCenterWelcomeText::
-	text "Welcome to our"
-	line "#MON CENTER!"
-
-	para "We heal your"
-	line "#MON back to"
-	cont "perfect health!"
+	text "Welcome! Feed me"
+	line "your #MON!"
 	prompt
 
 _ShallWeHealYourPokemonText::
@@ -170,20 +185,8 @@ _ShallWeHealYourPokemonText::
 	line "#MON?"
 	done
 
-_NeedYourPokemonText::
-	text "OK. We'll need"
-	line "your #MON."
-	done
-
-_PokemonFightingFitText::
-	text "Thank you!"
-	line "Your #MON are"
-	cont "fighting fit!"
-	prompt
-
 _PokemonCenterFarewellText::
-	text "We hope to see"
-	line "you again!"
+	text "BYE!"
 	done
 
 _CableClubNPCAreaReservedFor2FriendsLinkedByCableText::

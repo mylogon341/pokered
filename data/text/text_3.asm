@@ -11,6 +11,9 @@ _WouldYouLikeToSaveText::
 _GameSavedText::
 	text "<PLAYER> saved"
 	line "the game!"
+
+	para "Good work"
+
 	done
 
 _OlderFileWillBeErasedText::
@@ -45,17 +48,23 @@ _IntoText::
 	done
 
 _StoppedEvolvingText::
-	text "Huh? @"
+	text "Huh? You stopped"
+	line "@"
 	text_ram wcf4b
 	text_start
-	line "stopped evolving!"
+	line "from evolving!"
+	para "Why?!"
+	cont "It was looking"
+	line "so promising too :("
 	prompt
 
 _IsEvolvingText::
-	text "What? @"
+	text "- Barbie style -" 
+	line "What in the world?!"
+	para "Is @"
 	text_ram wcf4b
 	text_start
-	line "is evolving!"
+	line "evolving?!"
 	done
 
 _FellAsleepText::
@@ -125,7 +134,8 @@ _FellText::
 
 _RanFromBattleText::
 	text "<USER>"
-	line "ran from battle!"
+	line "ran from battle"
+	cont "like a big chicken"
 	prompt
 
 _RanAwayScaredText::
@@ -191,6 +201,8 @@ _MoveWasDisabledText::
 	text_ram wcd6d
 	text " was"
 	cont "disabled!"
+	
+	para "Take that!"
 	prompt
 
 _NothingHappenedText::
@@ -203,6 +215,7 @@ _NoEffectText::
 
 _ButItFailedText::
 	text "But, it failed! "
+	line "D':"
 	prompt
 
 _DidntAffectText::
@@ -244,6 +257,8 @@ _CoinsScatteredText::
 _GettingPumpedText::
 	text "<USER>'s"
 	line "getting pumped!"
+	cont "..but not in a"
+	cont "smelly way :|"
 	prompt
 
 _WasSeededText::
@@ -319,10 +334,14 @@ _SuckedHealthText::
 _DreamWasEatenText::
 	text "<TARGET>'s"
 	line "dream was eaten!"
+	
+	para "They said that"
+	line "it was extra"
+	cont "delicious :P"
 	prompt
 
 _TradeCenterText1::
-	text "!"
+	text ":o"
 	done
 
 _ColosseumText1::

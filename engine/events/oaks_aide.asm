@@ -1,20 +1,7 @@
 OaksAideScript:
 	ld hl, OaksAideHiText
 	call PrintText
-	call YesNoChoice
-	ld a, [wCurrentMenuItem]
-	and a
-	jr nz, .choseNo
-	ld hl, wPokedexOwned
-	ld b, wPokedexOwnedEnd - wPokedexOwned
-	call CountSetBits
-	ld a, [wNumSetBits]
-	ldh [hOaksAideNumMonsOwned], a
-	ld b, a
-	ldh a, [hOaksAideRequirement]
-	cp b
 	jr z, .giveItem
-	jr nc, .notEnoughOwnedMons
 .giveItem
 	ld hl, OaksAideHereYouGoText
 	call PrintText

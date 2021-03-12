@@ -31,6 +31,10 @@ _ThrewAwayItemText::
 	line "@"
 	text_ram wcd6d
 	text "."
+	para "<PLAYER> didn't"
+	cont "use a bin though"
+	cont "so should be put"
+	cont "in prison, really."
 	prompt
 
 _IsItOKToTossItemText::
@@ -82,7 +86,7 @@ _WannaTrade1Text::
 
 _NoTrade1Text::
 	text "Awww!"
-	line "Oh well..."
+	line "Oh lame!..."
 	done
 
 _WrongMon1Text::
@@ -93,6 +97,9 @@ _WrongMon1Text::
 
 	para "If you get one,"
 	line "come back here!"
+	cont "Otherwise, don't"
+	cont "waste my time again"
+	cont "You hear me?!"
 	done
 
 _Thanks1Text::
@@ -124,13 +131,14 @@ _NoTrade2Text::
 	done
 
 _WrongMon2Text::
-	text "Hmmm? This isn't"
-	line "@"
+	text "Hmmm? Does this"
+	line "look anything like"
+	cont "@"
 	text_ram wInGameTradeGiveMonName
-	text "."
+	text "?"
 
-	para "Think of me when"
-	line "you get one."
+	para "Come back when you"
+	line "actua get one!"
 	done
 
 _Thanks2Text::
@@ -195,6 +203,6 @@ _NothingToCutText::
 
 _UsedCutText::
 	text_ram wcd6d
-	text " hacked"
-	line "away with CUT!"
+	text " chopped"
+	line "away the bush!"
 	prompt

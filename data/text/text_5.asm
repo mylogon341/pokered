@@ -32,7 +32,10 @@ _CyclingIsFunText::
 
 _FlashLightsAreaText::
 	text "A blinding FLASH"
-	line "lights the area!"
+	line "is so startling"
+	cont "that <PLAYER>"
+	cont "nearly poos their"
+	cont "underpants!"
 	prompt
 
 _WarpToLastPokemonCenterText::
@@ -64,7 +67,7 @@ _NewBadgeRequiredText::
 
 _CannotUseItemsHereText::
 	text "You can't use items"
-	line "here."
+	line "here, silly."
 	prompt
 
 _CannotGetOffHereText::
@@ -82,6 +85,13 @@ _GotMonText::
 _SentToBoxText::
 	text "There's no more"
 	line "room for #MON!"
+	cont "You knew that"
+	cont "the pockets on"
+	cont "trousers were too"
+	cont "small, but they"
+	cont "look SOO good and"
+	cont "bought them"
+	cont "anyway!"
 	cont "@"
 	text_ram wBoxMonNicks
 	text " was"

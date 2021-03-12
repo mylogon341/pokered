@@ -898,7 +898,8 @@ _PlayerBlackedOutText2::
 	line "useable #MON!"
 
 	para "<PLAYER> blacked"
-	line "out!"
+	line "out like a little"
+	cont "cry baby!"
 	prompt
 
 _LinkBattleLostText::
@@ -1722,8 +1723,8 @@ _OakSpeechText2B::
 
 	para "Myself..."
 
-	para "I study #MON"
-	line "as a profession."
+	para "I study poo"
+	line "as a profession!"
 	prompt
 
 _IntroducePlayerText::
@@ -1732,8 +1733,8 @@ _IntroducePlayerText::
 
 	para "OR ELSE!!!"
 
-	para "What is your"
-	line "name?!"
+	para "What. Is. Your."
+	line "Name?!"
 	prompt
 
 _IntroduceRivalText::
@@ -1759,6 +1760,16 @@ _OakSpeechText3::
 	line "#MON legend is"
 	cont "about to unfold!"
 
+	para "Make sure to talk"
+	line "to lots of people"
+	cont "and read all of"
+	cont "their messages as"
+	cont "there might be"
+	cont "some hidden"
+	cont "messages in there"
+	cont "that I (Dadler)"
+	cont "have put in :)"
+
 	para "A world of dreams"
 	line "and adventures"
 	cont "with #MON"
@@ -1774,8 +1785,9 @@ _DoYouWantToNicknameText::
 	done
 
 _NoCustomText::
-	text "Yeah. No."
-	line "If you don't"
+	text "Yeah. No..."
+	
+	para "If you don't"
 	cont "like my suggested"
 	cont "names, then I'll"
 	cont "pick one for you."
@@ -1788,8 +1800,9 @@ _YourNameIsText::
 	text "Sorry. What was"
 	line "that? <PLAYER>?"
 
+	para "a ahahahahah"
 	para "Nice to meet you"
-	line "<PLAYER>! :D"
+	line "<PLAYER>! :'D"
 	prompt
 
 _HisNameIsText::

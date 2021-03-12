@@ -30,10 +30,13 @@ _NothingHereText::
 _ItsABiteText::
 	text "Oh!"
 	line "It's a bite!"
+	cont "I hope it's a"
+	cont "super powerful"
+	cont "#MON!"
 	prompt
 
 _ExclamationText::
-	text "!"
+	text ":o"
 	done
 
 _GroundRoseText::
@@ -44,6 +47,10 @@ _GroundRoseText::
 _BoulderText::
 	text "This requires"
 	line "STRENGTH to move!"
+	cont "A little whimp like"
+	cont "you could never"
+	cont "move a rock like"
+	cont "this!!"
 	done
 
 _MartSignText::
@@ -62,11 +69,15 @@ _FoundItemText::
 	line "@"
 	text_ram wcf4b
 	text "!@"
+	cont "Wasn't that lucky?!"
 	text_end
 
 _NoMoreRoomForItemText::
 	text "No more room for"
 	line "items!"
+	
+	para "Your pockets are"
+	cont "absolutely packed!"
 	done
 
 _OaksAideHiText::
@@ -84,12 +95,12 @@ _OaksAideHiText::
 	text_ram wOaksAideRewardItemName
 	text "!"
 
-	para "So, <PLAYER>! Have"
-	line "you caught at"
-	cont "least @"
-	text_decimal hOaksAideRequirement, 1, 3
-	text " kinds of"
-	cont "#MON?"
+	para "You look like you"
+	line "have an honest"
+	cont "face so I'm going"
+	cont "to give it to you"
+	cont "anyway. Don't tell"
+	cont "'The Prof'!"
 	done
 
 _OaksAideUhOhText::
