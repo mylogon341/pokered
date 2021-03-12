@@ -69,8 +69,8 @@ LoadSAV0:
 	ld de, wSpriteDataStart
 	ld bc, wSpriteDataEnd - wSpriteDataStart
 	call CopyData
-	ld a, [sTilesetType]
-	ldh [hTilesetType], a
+	ld a, [sTileAnimations]
+	ldh [hTileAnimations], a
 	ld hl, sCurBoxData
 	ld de, wBoxDataStart
 	ld bc, wBoxDataEnd - wBoxDataStart
@@ -217,8 +217,8 @@ SaveSAVtoSRAM0:
 	ld de, sCurBoxData
 	ld bc, wBoxDataEnd - wBoxDataStart
 	call CopyData
-	ldh a, [hTilesetType]
-	ld [sTilesetType], a
+	ldh a, [hTileAnimations]
+	ld [sTileAnimations], a
 	ld hl, sPlayerName
 	ld bc, sMainDataCheckSum - sPlayerName
 	call SAVCheckSum
@@ -351,10 +351,10 @@ ChangeBox::
 	call z, EmptyAllSRAMBoxes ; if so, empty all boxes in SRAM
 	call DisplayChangeBoxMenu
 	call UpdateSprites
-	ld hl, hFlagsFFF6
+	ld hl, hUILayoutFlags
 	set 1, [hl]
 	call HandleMenuInput
-	ld hl, hFlagsFFF6
+	ld hl, hUILayoutFlags
 	res 1, [hl]
 	bit 1, a ; pressed b
 	ret nz
@@ -445,12 +445,12 @@ DisplayChangeBoxMenu:
 	ld b, 12
 	ld c, 7
 	call TextBoxBorder
-	ld hl, hFlagsFFF6
+	ld hl, hUILayoutFlags
 	set 2, [hl]
 	ld de, BoxNames
 	hlcoord 13, 1
 	call PlaceString
-	ld hl, hFlagsFFF6
+	ld hl, hUILayoutFlags
 	res 2, [hl]
 	ld a, [wCurrentBoxNum]
 	and $7f
