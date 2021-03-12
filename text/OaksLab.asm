@@ -191,13 +191,10 @@ _OaksLabRivalWaitingText::
 	done
 
 _OaksLabChooseMonText::
-	text "OAK: Oh shut up,"
-	line "<RIVAL>! Quit your"
-	cont "complaining or you"
-	cont "get nothing!"
+	text "OAK: <RIVAL>?"
+	line "Let me think..."
 
-	para "Where was I..?"
-	cont "Oh, that's right,"
+	para "Oh, that's right,"
 	line "I told you to"
 	cont "come! Just wait!"
 
@@ -206,37 +203,31 @@ _OaksLabChooseMonText::
 	para "There are 3"
 	line "#MON here!"
 
+	para "Haha!"
+
 	para "They are inside"
 	line "the # BALLs."
 
-	para "I only have 3"
-	line "#MON left. Please"
-	cont "don't take any of"
-	cont "these.."
+	para "When I was young,"
+	line "I was a serious"
+	cont "#MON trainer!"
+
+	para "In my old age, I"
+	line "have only 3 left,"
+	cont "but you can have"
+	cont "one! Choose!"
 	done
 
 _OaksLabRivalInterjectionText::
 	text "<RIVAL>: Hey!"
-	line "Gramps! Listen to"
-	cont "me! These are ours"
-	cont "now. <PLAYER> and I"
-	cont "are going to help"
-	cont "ourselves. Isn't that"
-	cont "right, <PLAYER>?"
-	cont "After you, <PLAYER>"
-
-	para "OAK: Please no. It"
-	line "took me like 50"
-	cont "years to find these"
-	cont "3 #MON! Without"
-	cont "them, I'm nothing!"
-
+	line "Gramps! What"
+	cont "about me?"
 	done
 
 _OaksLabBePatientText::
-	text "OAK: ...."
-	cont "Ok... take them."
-	cont "D':"
+	text "OAK: Be patient!"
+	line "<RIVAL>, you can"
+	cont "have one too!"
 	done
 
 _OaksLabLeavingText::
@@ -261,11 +252,6 @@ _OaksLabRivalChallengeText::
 	line "<PLAYER>!"
 	cont "Let's check out"
 	cont "our #MON!"
-
-	para "Let's fight inside"
-	line "this stupid lab"
-	cont "too so we make"
-	cont "loads of mess. HA!"
 
 	para "Come on, I'll take"
 	line "you on!"
@@ -341,6 +327,17 @@ _OaksLabText26::
 
 	para "But, I'm too old!"
 	line "I can't do it!"
+
+	para "So, I want you two"
+	line "to fulfill my"
+	cont "dream for me!"
+
+	para "Get moving, you"
+	line "two!"
+
+	para "This is a great"
+	line "undertaking in"
+	cont "#MON history!"
 	done
 
 _OaksLabText27::

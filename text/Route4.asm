@@ -10,20 +10,8 @@ _Route4BattleText1::
 	done
 
 _Route4EndBattleText1::
-	text "HEY!!!!"
-
-	para "Here is a little"
-	line "secret. I hear"
-	cont "that a very cool"
-	cont "Dadler put in a"
-	cont "secret way to"
-	cont "skip Mt. Moon :D"
-	
-	para "Go give him a"
-	line "big cuddle and"
-	cont "he will tell you"
-	cont "all the secrets"
-	cont "that you will need"
+	text "Oh! My cute"
+	line "mushroom #MON!"
 	prompt
 
 _Route4AfterBattleText1::
