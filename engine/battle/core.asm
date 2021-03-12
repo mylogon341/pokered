@@ -51,7 +51,7 @@ SlidePlayerAndEnemySilhouettesOnScreen:
 	ldh [hWY], a
 	ldh [rWY], a
 	xor a
-	ldh [hTilesetType], a
+	ldh [hTileAnimations], a
 	ldh [hSCY], a
 	dec a
 	ld [wUpdateSpritesEnabled], a
@@ -2015,18 +2015,19 @@ DisplayBattleMenu::
 .menuselected
 	ld [wTextBoxID], a
 	call DisplayTextBoxID
+ ; handle menu input if it's not the old man tutorial
 	ld a, [wBattleType]
 	dec a
-	jp nz, .handleBattleMenuInput ; handle menu input if it's not the old man tutorial
+	jp nz, .handleBattleMenuInput
 ; the following happens for the old man tutorial
-	; Temporarily save the player name in wGrassRate,
-	; which is supposed to get overwritten when entering a
-	; map with wild Pokémon.
-	; Due to an oversight, the data may not get
-	; overwritten (on Cinnabar and Route 21) and the infamous
-	; Missingno. glitch can show up.
+	; Temporarily save the player name in wLinkEnemyTrainerName.
+	; Since wLinkEnemyTrainerName == wGrassRate, this affects wild encounters.
+	; The wGrassRate byte and following wGrassMons buffer are supposed
+	; to get overwritten when entering a map with wild Pokémon,
+	; but an oversight prevents this in Cinnabar and Route 21,
+	; so the infamous MissingNo. glitch can show up.
 	ld hl, wPlayerName
-	ld de, wGrassRate
+	ld de, wLinkEnemyTrainerName
 	ld bc, NAME_LENGTH
 	call CopyData
 	ld hl, .oldManName
@@ -2487,13 +2488,13 @@ MoveSelectionMenu:
 
 .writemoves
 	ld de, wMovesString
-	ldh a, [hFlagsFFF6]
+	ldh a, [hUILayoutFlags]
 	set 2, a
-	ldh [hFlagsFFF6], a
+	ldh [hUILayoutFlags], a
 	call PlaceString
-	ldh a, [hFlagsFFF6]
+	ldh a, [hUILayoutFlags]
 	res 2, a
-	ldh [hFlagsFFF6], a
+	ldh [hUILayoutFlags], a
 	ret
 
 .regularmenu
@@ -2613,10 +2614,10 @@ SelectMenuItem:
 	call AddNTimes
 	ld [hl], "▷"
 .select
-	ld hl, hFlagsFFF6
+	ld hl, hUILayoutFlags
 	set 1, [hl]
 	call HandleMenuInput
-	ld hl, hFlagsFFF6
+	ld hl, hUILayoutFlags
 	res 1, [hl]
 	bit BIT_D_UP, a
 	jp nz, SelectMenuItem_CursorUp
@@ -6290,7 +6291,7 @@ DoBattleTransitionAndInitBattleVariables:
 	ldh [hAutoBGTransferEnabled], a
 	ldh [hWY], a
 	ldh [rWY], a
-	ldh [hTilesetType], a
+	ldh [hTileAnimations], a
 	ld hl, wPlayerStatsToDouble
 	ld [hli], a
 	ld [hli], a
@@ -6880,8 +6881,8 @@ _InitBattleCommon:
 	ld [wLetterPrintingDelayFlags], a
 	pop af
 	ld [wMapPalOffset], a
-	ld a, [wSavedTilesetType]
-	ldh [hTilesetType], a
+	ld a, [wSavedTileAnimations]
+	ldh [hTileAnimations], a
 	scf
 	ret
 .emptyString
